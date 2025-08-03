@@ -1,0 +1,1 @@
+# techminds-global.github.io
