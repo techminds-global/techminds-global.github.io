@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://localhost:57315/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rideshare - Sustainable Carpooling for a Greener Future</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./Rideshare_files/customer.css">
+<style>
+    .notification-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+    .notification-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 0;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .notification-close:hover { 
+        opacity: 0.8; 
+    }
+</style></head>
+<body>
+    <!-- Fixed Header with Search -->
+    <header class="fixed-header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <span class="logo-text">Rideshare</span>
+            </div>
+            
+            <nav class="header-nav">
+                <a href="https://localhost:57315/Home/Search" class="nav-link">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </a>
+                <div class="user-profile" id="profile-toggle">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login/Signup Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" id="closeModal">×</button>
+                <h2>Welcome to Rideshare</h2>
+            </div>
+            <div class="modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" id="loginTab">Login</button>
+                    <button class="auth-tab" id="signupTab">Sign Up</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form class="auth-form active" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required="">
+                    </div>
+                    <button type="submit" class="modal-btn">Login</button>
+                </form>
+                
+                <!-- Signup Form -->
+                <form class="auth-form" id="signupForm">
+                    <div class="form-group">
+                        <label for="signupFirstName">First Name</label>
+                        <input type="text" id="signupFirstName" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupLastName">Last Name</label>
+                        <input type="text" id="signupLastName" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                        <input type="password" id="signupConfirmPassword" required="">
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="signupWantsToOfferRide">
+                            <label for="signupWantsToOfferRide">
+                                <i class="fas fa-car me-2"></i>Do you want to offer rides?
+                            </label>
+                        </div>
+                        <small class="form-text">Enable this option if you're interested in offering rides to other users</small>
+                    </div>
+                    <button type="submit" class="modal-btn">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Sustainable rides that help save the planet</h1>
+                    <p class="hero-subtitle">Join millions of eco-conscious travelers who choose Rideshare to reduce carbon emissions and make a positive impact on the environment.</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">2M+</span>
+                            <span class="stat-label">Eco travelers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Cities covered</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">CO₂ tons saved</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="road-animation">
+                        <div class="road"></div>
+                        <div class="car car-1">
+                            <div class="car-body">
+                                <div class="headlight left"></div>
+                                <div class="headlight right"></div>
+                                <div class="taillight left"></div>
+                                <div class="taillight right"></div>
+                            </div>
+                            <div class="car-window"></div>
+                        </div>
+                        <div class="car car-2">
+                            <div class="car-body">
+                                <div class="headlight left"></div>
+                                <div class="headlight right"></div>
+                                <div class="taillight left"></div>
+                                <div class="taillight right"></div>
+                            </div>
+                            <div class="car-window"></div>
+                        </div>
+                        <div class="car car-3">
+                            <div class="car-body">
+                                <div class="headlight left"></div>
+                                <div class="headlight right"></div>
+                                <div class="taillight left"></div>
+                                <div class="taillight right"></div>
+                            </div>
+                            <div class="car-window"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">Why Choose Rideshare</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Reduce your carbon footprint</h3>
+                        <p>Every shared ride helps reduce CO₂ emissions. Join our community of eco-conscious travelers making a positive environmental impact.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Trust who you travel with</h3>
+                        <p>We verify all our members and partners. Check reviews, profiles, and IDs so you know who you're traveling with.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Book in minutes</h3>
+                        <p>Our simple app powered by great technology lets you book a ride close to you in just minutes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety Section -->
+        <section class="safety-section">
+            <div class="container">
+                <div class="safety-content">
+                    <div class="safety-visual">
+                        <div class="safety-illustration">
+                            <div class="detective">
+                                <div class="detective-body"></div>
+                                <div class="detective-head"></div>
+                                <div class="magnifying-glass"></div>
+                            </div>
+                            <div class="profiles-grid">
+                                <div class="profile verified">
+                                    <div class="profile-avatar"></div>
+                                    <div class="verification-badge">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="profile verified">
+                                    <div class="profile-avatar"></div>
+                                    <div class="verification-badge">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="profile verified">
+                                    <div class="profile-avatar"></div>
+                                    <div class="verification-badge">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <div class="profile warning">
+                                    <div class="profile-avatar"></div>
+                                    <div class="warning-badge">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="safety-text">
+                        <h2>Help us keep you safe from scams</h2>
+                        <p>At Rideshare, we're working hard to make our platform as secure as it can be. But when scams do happen, we want you to know exactly how to avoid and report them.</p>
+                        <button class="btn-secondary">
+                            <i class="fas fa-shield-alt"></i>
+                            Learn more
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h2>Driving in your car soon?</h2>
+                        <p>Share your ride and help reduce carbon emissions while earning money.</p>
+                        <button class="btn-primary">
+                            <i class="fas fa-car"></i>
+                            Offer a ride
+                        </button>
+                    </div>
+                    <div class="cta-visual">
+                        <div class="car-illustration">
+                            <div class="car-interior">
+                                <div class="passenger passenger-1"></div>
+                                <div class="passenger passenger-2"></div>
+                                <div class="passenger passenger-3"></div>
+                                <div class="driver"></div>
+                                <div class="steering-wheel"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Help Section -->
+        <section class="help-section">
+            <div class="container">
+                <h2 class="help-title">Rideshare Help Centre</h2>
+                <div class="help-grid">
+                    <div class="help-column">
+                        <div class="help-item">
+                            <h3><i class="fas fa-book-open"></i> How do I book a ride?</h3>
+                            <p>Search for your destination, choose your date, and pick the perfect ride from available options.</p>
+                            <a href="https://localhost:57315/#" class="read-more">
+                                Read more
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="help-item">
+                            <h3><i class="fas fa-times-circle"></i> How do I cancel my ride?</h3>
+                            <p>Go to 'Your rides' section and cancel anytime. The sooner you cancel, the better for everyone.</p>
+                            <a href="https://localhost:57315/#" class="read-more">
+                                Read more
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="help-item">
+                            <h3><i class="fas fa-dollar-sign"></i> How much does a ride cost?</h3>
+                            <p>Costs vary based on distance, time, demand, and driver's pricing. You'll see the exact price before booking.</p>
+                            <a href="https://localhost:57315/#" class="read-more">
+                                Read more
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="help-column">
+                        <div class="help-item">
+                            <h3><i class="fas fa-car"></i> How do I offer a ride?</h3>
+                            <p>Set your departure and arrival points, choose date and time, and specify number of passengers needed.</p>
+                            <a href="https://localhost:57315/#" class="read-more">
+                                Read more
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="help-item">
+                            <h3><i class="fas fa-leaf"></i> What are the environmental benefits of carpooling?</h3>
+                            <p>Carpooling reduces CO₂ emissions, decreases traffic congestion, and helps create a more sustainable future for everyone!</p>
+                            <a href="https://localhost:57315/#" class="read-more">
+                                Read more
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="help-item">
+                            <h3><i class="fas fa-play-circle"></i> How do I start carpooling?</h3>
+                            <p>Sign up for an account, provide your basic details, and you're ready to book your first ride.</p>
+                            <a href="https://localhost:57315/#" class="read-more">
+                                Read more
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="help-cta">
+                    <button class="btn-primary">
+                        <i class="fas fa-question-circle"></i>
+                        Read our Help Centre
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Car Animation Showcase -->
+        <!-- <section class="car-showcase-section"> -->
+            <!-- <div class="container"> -->
+                <!-- <h2 class="section-title">Our Animated Cars</h2> -->
+                <!-- <div class="car-showcase-grid"> -->
+                                       <!-- <div class="car-showcase-item"> -->
+                       <!-- <h3>Loading Animation</h3> -->
+                       <!-- <div class="car-loading"> -->
+                           <!-- <div class="car-body"> -->
+                               <!-- <div class="headlight left"></div> -->
+                               <!-- <div class="headlight right"></div> -->
+                               <!-- <div class="taillight left"></div> -->
+                               <!-- <div class="taillight right"></div> -->
+                               <!-- <div class="car-window"></div> -->
+                           <!-- </div> -->
+                       <!-- </div> -->
+                       <!-- <p>Perfect for loading states</p> -->
+                   <!-- </div> -->
+                    
+                                       <!-- <div class="car-showcase-item"> -->
+                       <!-- <h3>Progress Animation</h3> -->
+                       <!-- <div class="progress-car"> -->
+                           <!-- <div class="road-track"></div> -->
+                           <!-- <div class="car"> -->
+                               <!-- <div class="car-body"> -->
+                                   <!-- <div class="headlight left"></div> -->
+                                   <!-- <div class="headlight right"></div> -->
+                                   <!-- <div class="taillight left"></div> -->
+                                   <!-- <div class="taillight right"></div> -->
+                                   <!-- <div class="car-window"></div> -->
+                               <!-- </div> -->
+                           <!-- </div> -->
+                       <!-- </div> -->
+                       <!-- <p>Shows order progress</p> -->
+                   <!-- </div> -->
+                    
+                                       <!-- <div class="car-showcase-item"> -->
+                       <!-- <h3>Hero Animation</h3> -->
+                       <!-- <div class="road-animation" style="height: 200px;"> -->
+                           <!-- <div class="road"></div> -->
+                           <!-- <div class="car car-1"> -->
+                               <!-- <div class="car-body"> -->
+                                   <!-- <div class="headlight left"></div> -->
+                                   <!-- <div class="headlight right"></div> -->
+                                   <!-- <div class="taillight left"></div> -->
+                                   <!-- <div class="taillight right"></div> -->
+                               <!-- </div> -->
+                               <!-- <div class="car-window"></div> -->
+                           <!-- </div> -->
+                       <!-- </div> -->
+                       <!-- <p>Main hero section cars</p> -->
+                   <!-- </div> -->
+                <!-- </div> -->
+            <!-- </div> -->
+        <!-- </section> -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Top carpool routes</h4>
+                    <ul>
+                        <li><a href="https://localhost:57315/#"><i class="fas fa-route"></i> New York → Boston</a></li>
+                        <li><a href="https://localhost:57315/#"><i class="fas fa-route"></i> Los Angeles → San Francisco</a></li>
+                        <li><a href="https://localhost:57315/#"><i class="fas fa-route"></i> Chicago → Detroit</a></li>
+                        <li><a href="https://localhost:57315/#"><i class="fas fa-route"></i> Miami → Orlando</a></li>
+                        <li><a href="https://localhost:57315/#"><i class="fas fa-route"></i> Seattle → Portland</a></li>
+                    </ul>
+                    <a href="https://localhost:57315/#" class="footer-link"><i class="fas fa-map"></i> All carpool routes</a>
+                    <a href="https://localhost:57315/#" class="footer-link"><i class="fas fa-map-marker-alt"></i> All carpool destinations</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="https://localhost:57315/Home/Search">
+                            <i class="fas fa-search"></i> Search
+                        </a></li>
+                        <li><a href="https://localhost:57315/#">
+                            <i class="fas fa-plus"></i> Offer a ride
+                        </a></li>
+                        <li><a href="https://localhost:57315/#" id="footer-profile-toggle">
+                            <i class="fas fa-user-circle"></i> Login / Sign up
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <div class="language-selector">
+                        <button class="language-btn">
+                            <i class="fas fa-globe"></i>
+                            Language - English (US)
+                        </button>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://localhost:57315/#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://localhost:57315/#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://localhost:57315/#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="https://localhost:57315/#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <a href="https://localhost:57315/#"><i class="fas fa-file-contract"></i> Terms and Conditions</a>
+                </div>
+                <div class="footer-bottom-right">
+                                          <div class="footer-logo">
+                          <i class="fas fa-car"></i>
+                          <span>Rideshare, 2025 ©</span>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="./Rideshare_files/customer.js.download"></script>
+
+<!-- Visual Studio Browser Link -->
+<script type="text/javascript" src="./Rideshare_files/browserLink" async="async" id="__browserLink_initializationData" data-requestid="00429f00b5b74cad9ede00d2cb07f1ef" data-requestmappingfromserver="false" data-connecturl="http://localhost:50933/a5df7b84334242369b28bd42cff019b4/browserLink"></script>
+<!-- End Browser Link -->
+<script src="./Rideshare_files/aspnetcore-browser-refresh.js.download"></script>
+ </body></html>
