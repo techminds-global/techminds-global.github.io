@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://localhost:57315/Home/Search -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a ride - Rideshare</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./Search_files/customer.css">
+<style>
+    .notification-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+    .notification-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 0;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .notification-close:hover { 
+        opacity: 0.8; 
+    }
+</style></head>
+<body>
+    <!-- Search Header -->
+    <header class="search-header">
+        <div class="search-header-container">
+            <a href="https://localhost:57315/" class="search-logo">
+                <div class="search-logo-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <span class="search-logo-text">Rideshare</span>
+            </a>
+            
+            <div class="search-header-actions">
+                <a href="https://localhost:57315/Home/Search#" class="offer-ride-btn">
+                    <i class="fas fa-plus"></i>
+                    Publish a ride
+                </a>
+                <div class="user-profile" id="profile-toggle">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Search Content -->
+    <main class="search-page">
+        <div class="search-main">
+            <h1 class="search-title">Find a ride</h1>
+            
+            <!-- Search Form -->
+            <div class="search-form-container">
+                <form class="search-form-grid">
+                    <div class="search-field">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" placeholder="Leaving from" id="from-input" required="">
+                    </div>
+                    
+                    <div class="search-field">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" placeholder="Going to" id="to-input" required="">
+                    </div>
+                    
+                    <div class="search-field">
+                        <i class="fas fa-calendar"></i>
+                        <input type="date" id="date-input" required="">
+                    </div>
+                    
+                    <div class="search-field">
+                        <i class="fas fa-user"></i>
+                        <select id="passengers-input">
+                            <option value="1">1 passenger</option>
+                            <option value="2">2 passengers</option>
+                            <option value="3">3 passengers</option>
+                            <option value="4">4 passengers</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="search-submit-btn">
+                        <i class="fas fa-search"></i>
+                        Search
+                    </button>
+                </form>
+            </div>
+
+            <!-- Recent Searches -->
+            <div class="recent-searches">
+                <h3>Recent searches</h3>
+                
+                <a href="https://localhost:57315/Home/Search#" class="search-item">
+                    <div class="search-item-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="search-item-content">
+                        <div class="search-item-route">Chennai, Tamil Nadu, India → Palakkad, Kerala, India</div>
+                        <div class="search-item-details">1 passenger</div>
+                    </div>
+                    <div class="search-item-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+                
+                <a href="https://localhost:57315/Home/Search#" class="search-item">
+                    <div class="search-item-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="search-item-content">
+                        <div class="search-item-route">Chennai, Tamil Nadu, India → Calicut, Kerala, India</div>
+                        <div class="search-item-details">1 passenger</div>
+                    </div>
+                    <div class="search-item-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Login/Signup Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" id="closeModal">×</button>
+                <h2>Welcome to Rideshare</h2>
+            </div>
+            <div class="modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" id="loginTab">Login</button>
+                    <button class="auth-tab" id="signupTab">Sign Up</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form class="auth-form active" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required="">
+                    </div>
+                    <button type="submit" class="modal-btn">Login</button>
+                </form>
+                
+                <!-- Signup Form -->
+                <form class="auth-form" id="signupForm">
+                    <div class="form-group">
+                        <label for="signupFirstName">First Name</label>
+                        <input type="text" id="signupFirstName" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupLastName">Last Name</label>
+                        <input type="text" id="signupLastName" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                        <input type="password" id="signupConfirmPassword" required="">
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="signupWantsToOfferRide">
+                            <label for="signupWantsToOfferRide">
+                                <i class="fas fa-car me-2"></i>Do you want to offer rides?
+                            </label>
+                        </div>
+                        <small class="form-text">Enable this option if you're interested in offering rides to other users</small>
+                    </div>
+                    <button type="submit" class="modal-btn">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./Search_files/customer.js.download"></script>
+    <script>
+        // Set today's date as default
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date-input').value = today;
+            
+            // Handle search form submission
+            document.querySelector('.search-form-grid').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const from = document.getElementById('from-input').value;
+                const to = document.getElementById('to-input').value;
+                const date = document.getElementById('date-input').value;
+                const passengers = document.getElementById('passengers-input').value;
+                
+                // Here you would typically send the search request to your API
+                console.log('Search request:', { from, to, date, passengers });
+                
+                // For now, just show an alert
+                alert(`Searching for rides from ${from} to ${to} on ${date} for ${passengers} passenger(s)`);
+            });
+            
+            // Handle recent search item clicks
+            document.querySelectorAll('.search-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const route = this.querySelector('.search-item-route').textContent;
+                    console.log('Recent search clicked:', route);
+                    
+                    // Here you would populate the search form with the recent search data
+                    // For now, just show an alert
+                    alert(`Loading recent search: ${route}`);
+                });
+            });
+        });
+    </script>
+
+<!-- Visual Studio Browser Link -->
+<script type="text/javascript" src="./Search_files/browserLink" async="async" id="__browserLink_initializationData" data-requestid="55d892523b294bc5a96297ae8e057661" data-requestmappingfromserver="false" data-connecturl="http://localhost:50933/a5df7b84334242369b28bd42cff019b4/browserLink"></script>
+<!-- End Browser Link -->
+<script src="./Search_files/aspnetcore-browser-refresh.js.download"></script>
+ </body></html>
